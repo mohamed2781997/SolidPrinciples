@@ -1,4 +1,5 @@
 ﻿
+using SolidPrinciples.LiskovSubstitutionPrinciple;
 using SolidPrinciples.OpenClosedPrinciples;
 using SolidPrinciples.SingleResponsibilityPrinciples;
 
@@ -31,12 +32,17 @@ namespace SolidPrinciples
             DiscountCalculator discountCalculator2 = new DiscountCalculator(new ClothingDiscount());
 
             Console.WriteLine($"Electronics Discount: {discountCalculator1.GetDiscount(product1)}");
-            Console.WriteLine($"Clothing Discount: {discountCalculator2.GetDiscount(product2)}"); 
+            Console.WriteLine($"Clothing Discount: {discountCalculator2.GetDiscount(product2)}");
             #endregion
 
 
+            #region Liskov
+            Shape rectangle = new Rectangle(5, 10);
+            Shape square = new Square(5);
 
-
+            Console.WriteLine($"Rectangle Area: {rectangle.Area()}");
+            Console.WriteLine($"Square Area: {square.Area()}"); 
+            #endregion
 
         }
 
