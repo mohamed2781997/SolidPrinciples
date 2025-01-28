@@ -10,6 +10,31 @@ namespace SolidPrinciples
         static void Main(string[] args)
         {
 
+            #region Interface Segeregation
+            var employees = Before.Repository.LoadEmployees();
+
+            foreach (var e in employees)
+            {
+                Console.WriteLine(e.PrintSalarySlip());
+                Console.WriteLine();
+            }
+
+
+
+            Console.WriteLine("====================================After implement isp================================");
+
+
+            var employeess = After.Repository.LoadEmployees();
+
+            foreach (var e in employeess)
+            {
+                Console.WriteLine(e.PrintSalarySlip());
+                Console.WriteLine();
+            }
+            Console.ReadKey();
+            #endregion
+
+
             #region SingleResponsibility
             //Employee employee = new Employee("John Doe", 160, 25);
 
@@ -45,15 +70,16 @@ namespace SolidPrinciples
 
 
             //var account = new Before.FixedDepositAccount("Issam", 10_000);
-            //account.Withdraw(1000); 
+            //account.Withdraw(1000);
 
-            var account = new After.CheckingAccount("Issam", 10_000);
-            account.Withdraw(1000);
+            //var account = new After.CheckingAccount("Issam", 10_000);
+            //account.Withdraw(1000);
 
             //var account = new After.FixedDepositAccount("Issam", 10_000);
             //account.Withdraw(1000); // won't work
             Console.ReadKey();
             #endregion
+
 
         }
 
